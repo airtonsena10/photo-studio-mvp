@@ -21,6 +21,8 @@ type ActiveTab = 'dashboard' | 'clients' | 'sessions';
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
+  const [showClientForm, setShowClientForm] = useState(false);
+  const [showSessionForm, setShowSessionForm] = useState(false);
   const { user } = useAuth();
   
   const {
@@ -46,7 +48,7 @@ export default function HomePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-center space-y-4">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
           <p className="text-muted-foreground">Carregando sistema...</p>
@@ -63,7 +65,24 @@ export default function HomePage() {
         {(() => {
           switch (activeTab) {
             case 'dashboard':
-              return <Dashboard clients={clients} sessions={sessions} />;
+              return (
+                <Dashboard 
+                  clients={clients} 
+                  sessions={sessions}
+                  onNavigateToClients={() => {
+                    setActiveTab('clients');
+                    setShowClientForm(true);
+                  }}
+                  onNavigateToSessions={() => {
+                    setActiveTab('sessions');
+                    setShowSessionForm(true);
+                  }}
+                  onShowReports={() => {
+                    // Implementar relatórios ou mostrar modal
+                    alert('Funcionalidade de relatórios será implementada em breve!');
+                  }}
+                />
+              );
             
             case 'clients':
               return (
@@ -72,6 +91,8 @@ export default function HomePage() {
                   onAddClient={addClient}
                   onUpdateClient={updateClient}
                   onDeleteClient={deleteClient}
+                  autoShowForm={showClientForm}
+                  onFormClose={() => setShowClientForm(false)}
                 />
               );
             
@@ -85,6 +106,8 @@ export default function HomePage() {
                   onUpdateSessionStatus={updateSessionStatus}
                   onUpdatePaymentStatus={updatePaymentStatus}
                   onDeleteSession={deleteSession}
+                  autoShowForm={showSessionForm}
+                  onFormClose={() => setShowSessionForm(false)}
                 />
               );
             
@@ -98,7 +121,7 @@ export default function HomePage() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen">
         {/* Header */}
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -64,16 +64,20 @@ export function RegisterForm({ onSuccess, onLoginClick }: RegisterFormProps) {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full max-w-md mx-auto bg-card/50 backdrop-blur-lg border border-border/50 shadow-2xl">
       <CardHeader className="space-y-1">
         <div className="flex items-center justify-center mb-4">
           <div className="flex items-center space-x-2">
-            <Camera className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold">FotoStudio Pro</span>
+            <div className="p-2 rounded-lg bg-primary/20">
+              <Camera className="h-8 w-8 text-primary" />
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+              Anju Fotografia
+            </span>
           </div>
         </div>
-        <CardTitle className="text-2xl text-center">Criar Conta</CardTitle>
-        <CardDescription className="text-center">
+        <CardTitle className="text-2xl text-center text-foreground">Criar Conta</CardTitle>
+        <CardDescription className="text-center text-muted-foreground">
           Crie sua conta para começar a usar o sistema
         </CardDescription>
       </CardHeader>

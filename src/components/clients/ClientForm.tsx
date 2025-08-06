@@ -14,7 +14,7 @@ interface ClientFormProps {
   onCancel: () => void;
 }
 
-const ClientForm: React.FC<ClientFormProps> = ({ client, onSave, onCancel }) => {
+export default function ClientForm({ client, onSave, onCancel }: ClientFormProps) {
   const [formData, setFormData] = useState<ClientFormData>({
     name: '',
     email: '',
@@ -102,12 +102,12 @@ const ClientForm: React.FC<ClientFormProps> = ({ client, onSave, onCancel }) => 
   };
 
   return (
-    <Card>
+    <Card className="client-card animate-fade-in-up">
       <CardHeader>
-        <CardTitle>
+        <CardTitle className="text-white">
           {client ? 'Editar Cliente' : 'Novo Cliente'}
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-slate-400">
           {client 
             ? 'Atualize as informações do cliente'
             : 'Adicione um novo cliente ao seu estúdio'
@@ -215,6 +215,4 @@ const ClientForm: React.FC<ClientFormProps> = ({ client, onSave, onCancel }) => 
       </CardContent>
     </Card>
   );
-};
-
-export default ClientForm;
+}

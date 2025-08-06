@@ -54,16 +54,20 @@ export function LoginForm({ onSuccess, onRegisterClick }: LoginFormProps) {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full max-w-md mx-auto bg-card/50 backdrop-blur-lg border border-border/50 shadow-2xl">
       <CardHeader className="space-y-1">
         <div className="flex items-center justify-center mb-4">
           <div className="flex items-center space-x-2">
-            <Camera className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold">Anju Fotografia</span>
+            <div className="p-2 rounded-lg bg-primary/20">
+              <Camera className="h-8 w-8 text-primary" />
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+              Anju Fotografia
+            </span>
           </div>
         </div>
-        <CardTitle className="text-2xl text-center">Entrar</CardTitle>
-        <CardDescription className="text-center">
+        <CardTitle className="text-2xl text-center text-foreground">Entrar</CardTitle>
+        <CardDescription className="text-center text-muted-foreground">
           Entre com sua conta para acessar o sistema
         </CardDescription>
       </CardHeader>
@@ -104,7 +108,7 @@ export function LoginForm({ onSuccess, onRegisterClick }: LoginFormProps) {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-400 hover:text-gray-600"
+                className="absolute inset-y-0 right-0 flex items-center px-3 text-muted-foreground hover:text-foreground transition-colors"
               >
                 {showPassword ? (
                   <EyeOff className="h-4 w-4" />
@@ -120,8 +124,8 @@ export function LoginForm({ onSuccess, onRegisterClick }: LoginFormProps) {
 
           {/* Erro geral */}
           {error && (
-            <div className="bg-red-50 border border-red-200 rounded-md p-3">
-              <p className="text-sm text-red-600">{error}</p>
+            <div className="bg-destructive/10 border border-destructive/20 rounded-md p-3">
+              <p className="text-sm text-destructive">{error}</p>
             </div>
           )}
 

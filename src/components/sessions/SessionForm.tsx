@@ -37,7 +37,7 @@ const sessionTypes: Array<{ value: SessionType; label: string; icon: string }> =
   { value: 'produto', label: 'Produto', icon: '📦' }
 ];
 
-const SessionForm: React.FC<SessionFormProps> = ({ clients, session, onSave, onCancel }) => {
+export default function SessionForm({ clients, session, onSave, onCancel }: SessionFormProps) {
   const [formData, setFormData] = useState<SessionFormData>({
     clientId: '',
     type: '',
@@ -160,13 +160,13 @@ const SessionForm: React.FC<SessionFormProps> = ({ clients, session, onSave, onC
   const valueSuggestions = formData.type ? getValueSuggestions(formData.type as SessionType) : [];
 
   return (
-    <Card>
+    <Card className="session-card animate-fade-in-scale">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Calendar className="h-5 w-5" />
+        <CardTitle className="flex items-center gap-2 text-white">
+          <Calendar className="h-5 w-5 text-blue-400" />
           {session ? 'Editar Sessão' : 'Nova Sessão Fotográfica'}
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-slate-400">
           {session 
             ? 'Atualize as informações da sessão'
             : 'Agende uma nova sessão fotográfica'
@@ -403,6 +403,4 @@ const SessionForm: React.FC<SessionFormProps> = ({ clients, session, onSave, onC
       </CardContent>
     </Card>
   );
-};
-
-export default SessionForm;
+}
