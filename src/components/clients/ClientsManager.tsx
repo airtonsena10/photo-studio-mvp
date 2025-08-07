@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Edit2, Trash2, Mail, Phone, MapPin, FileText } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Client, ClientFormData } from '@/types';
 import ClientForm from './ClientForm';
 import './clients-dark.css';
@@ -103,6 +103,14 @@ export default function ClientsManager({
             )}
           </div>
           
+         
+          <Button 
+            onClick={() => setShowForm(true)}
+            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg px-6 py-3 transition-all duration-200 hover:shadow-xl"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Novo Cliente
+          </Button>
         </div>
 
         {/* Formulário */}
@@ -150,9 +158,6 @@ export default function ClientsManager({
                   <div className="flex justify-between items-start">
                     <div className="space-y-1">
                       <CardTitle className="text-lg text-white">{client.name}</CardTitle>
-                      <CardDescription className="text-slate-400">
-                        Cliente desde {new Date(client.createdAt).toLocaleDateString('pt-BR')}
-                      </CardDescription>
                     </div>
                     <div className="flex gap-1">
                       <Button 

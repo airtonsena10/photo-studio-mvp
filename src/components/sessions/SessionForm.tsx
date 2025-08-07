@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Client, Session, SessionFormData, SessionType } from '@/types';
-import { formatCurrency } from '@/utils';
+import { formatCurrency, formatDateSafe } from '@/utils';
 
 interface SessionFormProps {
   clients: Client[];
@@ -365,7 +365,7 @@ export default function SessionForm({ clients, session, onSave, onCancel }: Sess
                   <span className="text-muted-foreground">Tipo:</span> {selectedTypeInfo.icon} {selectedTypeInfo.label}
                 </div>
                 <div>
-                  <span className="text-muted-foreground">Data/Hora:</span> {new Date(formData.date).toLocaleDateString('pt-BR')} às {formData.time}
+                  <span className="text-muted-foreground">Data/Hora:</span> {formatDateSafe(formData.date)} às {formData.time}
                 </div>
                 <div>
                   <span className="text-muted-foreground">Duração:</span> {formData.duration}h

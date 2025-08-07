@@ -13,8 +13,22 @@ export const formatDate = (dateString: string): string => {
   return new Date(dateString).toLocaleDateString('pt-BR');
 };
 
+export const formatDateSafe = (dateString: string | undefined): string => {
+  if (!dateString) return 'Data não informada';
+  
+  try {
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      return 'Data inválida';
+    }
+    return date.toLocaleDateString('pt-BR');
+  } catch {
+    return 'Data inválida';
+  }
+};
+
 export const formatDateTime = (dateString: string, timeString: string): string => {
-  return `${formatDate(dateString)} às ${timeString}`;
+  return `${formatDateSafe(dateString)} às ${timeString}`;
 };
 
 // Validações

@@ -145,9 +145,18 @@ export default function SessionsManager({
           </div>
           
           
+          {clients.length > 0 && (
+            <Button 
+              onClick={() => setShowForm(true)}
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg px-6 py-3 transition-all duration-200 hover:shadow-xl"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              Nova Sessão
+            </Button>
+          )}
         </div>
 
-        {/* Aviso se não há clientes */}
+ 
         {clients.length === 0 && (
           <Card className="filter-card animate-fade-in-scale">
             <CardContent className="flex flex-col items-center justify-center py-12">
