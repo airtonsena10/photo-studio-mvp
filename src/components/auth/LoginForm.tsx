@@ -148,8 +148,8 @@ export function LoginForm({ onSuccess, onRegisterClick }: LoginFormProps) {
             )}
           </Button>
 
-          {/* Links adicionais */}
-          <div className="space-y-4 text-center">
+        
+          {/* <div className="space-y-4 text-center">
             <button
               type="button"
               className="text-sm text-primary hover:underline"
@@ -173,7 +173,7 @@ export function LoginForm({ onSuccess, onRegisterClick }: LoginFormProps) {
                 </button>
               </div>
             )} 
-          </div>
+          </div> */}
         </form>
       </CardContent>
     </Card>
