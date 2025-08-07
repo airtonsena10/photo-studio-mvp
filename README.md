@@ -1,4 +1,4 @@
-# 📸 Photo Studio MVP
+# 📸 anjo fotografia
 
 Um sistema de gerenciamento completo para estúdios fotográficos, desenvolvido com Next.js 15, React 19, TypeScript e Firebase.
 
