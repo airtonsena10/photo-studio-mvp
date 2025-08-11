@@ -2,40 +2,36 @@
 
 Um sistema de gerenciamento completo para estúdios fotográficos, desenvolvido com Next.js 15, React 19, TypeScript e Firebase.
 
-## ✨ Funcionalidades
+## Problema que o projeto resolve
 
-### 👥 Gestão de Clientes
-- ✅ Cadastro completo de clientes com informações de contato
-- ✅ Listagem e busca de clientes
-- ✅ Edição e exclusão de dados
-- ✅ Histórico de sessões por cliente
+Gerenciar clientes, sessões fotográficas e autenticação de usuários em um estúdio de fotografia pode ser complexo e sujeito a erros quando feito manualmente. A ausência de uma solução digital centralizada dificulta o acompanhamento de agendamentos, histórico de clientes e controle de acesso seguro.
 
-### 📅 Agendamento de Sessões
-- ✅ Criação de sessões fotográficas com múltiplos tipos:
-  - 👶 Newborn
-  - 🤱 Gestante
-  - 💒 Casamento
-  - 💼 Corporativo
-  - 👨‍👩‍👧‍👦 Família
-  - 🎉 Evento
-  - 📦 Produto
-- ✅ Controle de status (Agendado, Em Andamento, Concluído, Cancelado)
-- ✅ Gestão de pagamentos (Pendente, 50%-pago, Pago)
-- ✅ Definição de local, duração e valor
+## Solução proposta
 
-### 📊 Dashboard Analítico
-- ✅ Total de clientes cadastrados
-- ✅ Sessões do mês atual
-- ✅ Receita mensal
-- ✅ Pagamentos pendentes
-- ✅ Visão geral do negócio
+O Photo Studio MVP é uma aplicação web desenvolvida com Next.js e Firebase, que permite:
+- Cadastro e autenticação de usuários
+- Gerenciamento de clientes
+- Controle de sessões fotográficas
+- Interface moderna e responsiva
 
-### 🔐 Autenticação e Segurança
-- ✅ Sistema de login/registro com Firebase Auth
-- ✅ Rotas protegidas
-- ✅ Dados seguros no Firestore
+## Funcionalidades
 
-## 🚀 Tecnologias Utilizadas
+- **Gestão de Clientes** - Cadastro, busca e histórico de sessões
+- **Agendamento de Sessões** - Múltiplos tipos (Newborn, Gestante, Casamento, etc.)
+- **Dashboard Analítico** - Visão geral de clientes, sessões e receitas
+- **Autenticação** - Sistema seguro com Firebase Auth
+
+## � Interface
+
+### Dashboard Principal
+![Dashboard](public/screenshots/dashboard.png)
+*Dashboard com visão geral de clientes, sessões, receitas e ações rápidas*
+
+### Tela de Login
+![Login](public/screenshots/login.png)
+*Interface de autenticação com design moderno e responsivo*
+
+## �🚀 Tecnologias Utilizadas
 
 ### Frontend
 - **Next.js 15** - Framework React com App Router
@@ -56,14 +52,6 @@ Um sistema de gerenciamento completo para estúdios fotográficos, desenvolvido 
 - **ESLint** - Linting de código
 - **PostCSS** - Processamento de CSS
 - **Tailwind CSS** - Framework CSS
-
-## 🛠️ Instalação e Configuração
-
-### Pré-requisitos
-- Node.js 18+ 
-- npm, yarn, pnpm ou bun
-- Conta no Firebase
-
 
 
 ## 📁 Estrutura do Projeto
@@ -93,7 +81,6 @@ src/
 O sistema possui uma interface moderna e responsiva com:
 
 - **Design System** baseado em Radix UI e Tailwind CSS
-- **Tema claro/escuro** (preparado para implementação)
 - **Componentes acessíveis** e semânticos
 - **Layout responsivo** para desktop e mobile
 - **Notificações** toast para feedback do usuário
